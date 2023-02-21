@@ -1,16 +1,17 @@
 <template>
   <div>
-    <main-page></main-page>
+    <sidebar></sidebar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import MainPage from './view/MainPage.vue'
+import Sidebar from './view/Sidebar.vue'
 
 export default {
   name: 'App',
   components: {
-    MainPage
+    Sidebar
   }
 }
 </script>
