@@ -1,6 +1,6 @@
 <template>
   <div>
-    <sidebar class="pb-4"></sidebar>
+    <sidebar class="menu"></sidebar>
     <router-view></router-view>
   </div>
 </template>
@@ -17,5 +17,7 @@ export default {
 </script>
 
 <style>
-
+.menu{
+  padding-bottom: 60px;
+}
 </style>

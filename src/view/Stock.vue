@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>Başlık 1</th>
@@ -25,5 +25,16 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      stocks : []
+    }
+  },
+  created(){
+    this.$axios.get("https://apitest.nilvera.com/general/Stocks").then(res=> {
+      console.log(res)
+    })
+  }
+};
 </script>
