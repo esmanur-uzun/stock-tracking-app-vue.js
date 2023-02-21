@@ -1,45 +1,30 @@
 <template>
-    <div>
-        <div class="col-lg-2 aside">
-            <ul>
-                <li class="mt-5 me-3">
-                    <router-link to="/">
-                        Ana Sayfa
-                    </router-link>
-                </li>
-                <li class="mt-3 me-3">
-                    <router-link to="/stock">
-                        Stoklar
-                    </router-link>
-                </li>
-            </ul>
-        </div>
+  <div>
+    <div class="col-lg-2 aside d-flex justify-content-center align-items-center">
+      <router-link to="/" class="menu" > Ana Sayfa </router-link>
+      <router-link to="/stock" class="menu ms-4"> Stoklar </router-link>
     </div>
+  </div>
 </template>
 <script>
-export default{
-
-}
+export default {};
 </script>
 <style scoped>
-.aside{
-    background-color: #023047;
-    position: fixed;
-    height: 100%;
+.aside {
+  background-color: #023047;
+  position: fixed  ;
+  width: 100%;
+  height: 60px;
 }
-ul li{
-    text-decoration: none;
-    list-style: none;
-    
+
+.menu{
+  text-decoration: none;
+  color: aliceblue;
 }
-ul li a{
-    text-decoration: none;
-    color: aliceblue;
+.menu:hover {
+  color: rgb(163, 208, 247);
 }
-ul li a:hover{
-    color:rgb(163, 208, 247);
-}
-i{
-    font-size: 30px;
+i {
+  font-size: 30px;
 }
 </style>

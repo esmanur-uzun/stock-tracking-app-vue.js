@@ -1,6 +1,6 @@
 <template>
   <div>
-    <sidebar></sidebar>
+    <sidebar class="pb-4"></sidebar>
     <router-view></router-view>
   </div>
 </template>
@@ -17,4 +17,5 @@ export default {
 </script>
 
 <style>
+
 </style>

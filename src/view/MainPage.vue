@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center ">
         <h1>Main Page</h1>
     </div>
 </template>
@@ -8,3 +8,5 @@ export default{
 
 }
 </script>
+<style>
+</style>
