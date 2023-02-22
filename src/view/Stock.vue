@@ -3,22 +3,26 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Başlık 1</th>
-          <th>Başlık 2</th>
-          <th>Başlık 3</th>
+          <th>Stok Adı</th>
+          <th>Sarıcı Kodu</th>
+          <th>Birim Adı</th>
+          <th>Fiyat</th>
+          <th>KDV(%)</th>
+          <th>İşlemler</th>
         </tr>
       </thead>
 
       <tbody>
-        <tr>
-          <td>Hücre 1</td>
-          <td>Hücre 2</td>
-          <td>Hücre 3</td>
-        </tr>
-        <tr>
-          <td>Hücre 4</td>
-          <td>Hücre 5</td>
-          <td>Hücre 6</td>
+        <tr v-for="stock in stocks" :key="stock.id">
+          <td>{{ stock.stokAdı }}</td>
+          <td>{{ stock.satıcıKodu }}</td>
+          <td>{{ stock.birimAdı }}</td>
+          <td>{{ stock.fiyat }}</td>
+          <td>{{ stock.kdv }}</td>
+          <td>
+            <button class="btn btn-danger me-2">sil</button>
+            <button class="btn btn-success">düzenle</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -32,8 +36,9 @@ export default {
     }
   },
   created(){
-    this.$axios.get("https://apitest.nilvera.com/general/Stocks").then(res=> {
-      console.log(res)
+    this.$axios.get("http://localhost:3000/stocks").then(res=> {
+      this.stocks = res.data
+      console.log(this.stocks)
     })
   }
 };

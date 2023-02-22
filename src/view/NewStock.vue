@@ -45,6 +45,7 @@ export default {
         onSave(){
             this.$axios.post("http://localhost:3000/stocks",this.newStock).then(res=>{
                 console.log(res)
+                this.$router.push({name: "stock"})
             })
         }
     }

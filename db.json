@@ -1,4 +1,44 @@
 {
   "stocks": [
+    {
+      "stokAdı": "elma",
+      "satıcıKodu": "00001",
+      "birimAdı": "kg",
+      "fiyat": "5",
+      "kdv": "1",
+      "id": 1
+    },
+    {
+      "stokAdı": "muz",
+      "satıcıKodu": "1002",
+      "birimAdı": "kg",
+      "fiyat": "20",
+      "kdv": "2",
+      "id": 2
+    },
+    {
+      "stokAdı": "kiraz",
+      "satıcıKodu": "00054",
+      "birimAdı": "kg",
+      "fiyat": "30",
+      "kdv": "1",
+      "id": 3
+    },
+    {
+      "stokAdı": "süt",
+      "satıcıKodu": "20012",
+      "birimAdı": "l",
+      "fiyat": "18",
+      "kdv": "1",
+      "id": 4
+    },
+    {
+      "stokAdı": "meyve suyu",
+      "satıcıKodu": "",
+      "birimAdı": "",
+      "fiyat": "",
+      "kdv": "",
+      "id": 5
+    }
   ]
 }
