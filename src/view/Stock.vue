@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th>Stok Adı</th>
-          <th>Sarıcı Kodu</th>
+          <th>Satıcı Kodu</th>
           <th>Birim Adı</th>
           <th>Fiyat</th>
           <th>KDV(%)</th>
@@ -13,14 +13,16 @@
       </thead>
 
       <tbody>
-        <tr  v-for="stock in stocks" :key="stock.id">
+        <tr v-for="stock in stocks" :key="stock.id">
           <td>{{ stock.stokAdı }}</td>
           <td>{{ stock.satıcıKodu }}</td>
           <td>{{ stock.birimAdı }}</td>
           <td>{{ stock.fiyat }}</td>
           <td>{{ stock.kdv }}</td>
           <td>
-            <button class="btn btn-danger me-2" @click="deleteStock(stock)">sil</button>
+            <button class="btn btn-danger me-2" @click="deleteStock(stock)">
+              sil
+            </button>
             <button
               type="button"
               class="btn btn-success"
@@ -43,7 +45,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                      Modal title
+                      Stok Güncelle
                     </h1>
                     <button
                       type="button"
@@ -52,7 +54,53 @@
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div class="modal-body">...</div>
+                  <div class="modal-body">
+                    <form class=" m-auto" v-for="item in 1" :key="item.id">
+                      <div class="mb-2">
+                        <label class="form-label">Stok Adı</label>
+                        <input
+                          v-model="items.stokAdı"
+                          type="text"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label class="form-label">Satıcı Kodu</label>
+                        <input
+                          v-model="items.satıcıKodu"
+                          type="text"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label class="form-label">Birim Adı</label>
+                        <input
+                        v-model="items.birimAdı"
+                          type="text"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label class="form-label">Fiyat</label>
+                        <input
+                        v-model="items.fiyat"
+                          type="text"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="mb-2">
+                        <label class="form-label">KDV(%)</label>
+                        <input
+                        v-model="items.kdv"
+                          type="text"
+                          class="form-control"
+                        />
+                      </div>
+                      <button type="button" class="btn btn-primary" @click="saveEdit(item)">
+                      Save changes
+                      </button>
+                    </form>
+                  </div>
                   <div class="modal-footer">
                     <button
                       type="button"
@@ -61,9 +109,7 @@
                     >
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary">
-                      Save changes
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -80,6 +126,13 @@ export default {
   data() {
     return {
       stocks: [],
+      items:{
+        stokAdı:"",
+        satıcıKodu:"",
+        birimAdı:"",
+        fiyat:"",
+        kdv:""
+      }
     };
   },
   created() {
@@ -87,13 +140,25 @@ export default {
       this.stocks = res.data;
     });
   },
-  methods:{
-    deleteStock(stock){
-      this.$axios.delete(`http://localhost:3000/stocks/${stock.id}`).then(delete_res =>{
-        console.log(delete_res)
-        this.stocks = this.stocks.filter(i => i.id !== stock.id)
+  methods: {
+    deleteStock(stock) {
+      this.$axios
+        .delete(`http://localhost:3000/stocks/${stock.id}`)
+        .then((delete_res) => {
+          console.log(delete_res);
+          this.stocks = this.stocks.filter((i) => i.id !== stock.id);
+        });
+    },
+    edit(item){
+      this.$axios.get(`http://localhost:3000/stocks/${item.id}`).then(edit_res =>{
+        this.items= edit_res.data
+      })
+    },
+    saveEdit(i){
+      this.$axios.put(`http://localhost:3000/stocks/${i}`).then(res=>{
+        console.log(res)
       })
     }
-  }
+  },
 };
 </script>
