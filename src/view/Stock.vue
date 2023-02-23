@@ -155,10 +155,18 @@ export default {
       })
     },
     saveEdit(i){
-      this.$axios.put(`http://localhost:3000/stocks/${i}`).then(res=>{
+      console.log(i)
+      this.$axios.put(`http://localhost:3000/stocks/${i}`,{
+        stokAdı:this.items.stokAdı,
+        satıcıKodu:this.items.satıcıKodu,
+        birimAdı: this.items.birimAdı,
+        fiyat:this.items.fiyat,
+        kdv:this.items.kdv
+      }).then(res=>{
         console.log(res)
       })
     }
+    
   },
 };
 </script>
