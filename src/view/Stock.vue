@@ -96,7 +96,7 @@
                           class="form-control"
                         />
                       </div>
-                      <button type="button" class="btn btn-primary" @click="saveEdit(item)">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="saveEdit(items.id)">
                       Save changes
                       </button>
                     </form>
@@ -155,15 +155,9 @@ export default {
       })
     },
     saveEdit(i){
-      console.log(i)
-      this.$axios.put(`http://localhost:3000/stocks/${i}`,{
-        stokAdı:this.items.stokAdı,
-        satıcıKodu:this.items.satıcıKodu,
-        birimAdı: this.items.birimAdı,
-        fiyat:this.items.fiyat,
-        kdv:this.items.kdv
-      }).then(res=>{
+      this.$axios.put(`http://localhost:3000/stocks/${i}`,this.items).then(res=>{
         console.log(res)
+        
       })
     }
     

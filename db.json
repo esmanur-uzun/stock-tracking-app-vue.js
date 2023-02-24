@@ -1,10 +1,10 @@
 {
   "stocks": [
     {
-      "stokAdı": "elma",
+      "stokAdı": "golden elma",
       "satıcıKodu": "0012",
       "birimAdı": "kg",
-      "fiyat": "10",
+      "fiyat": "13",
       "kdv": "1",
       "id": 2
     },
@@ -21,8 +21,16 @@
       "satıcıKodu": "0056",
       "birimAdı": "l",
       "fiyat": "25",
-      "kdv": "3",
+      "kdv": "5",
       "id": 4
+    },
+    {
+      "stokAdı": "futbol topu",
+      "satıcıKodu": "0020",
+      "birimAdı": "adet",
+      "fiyat": "55",
+      "kdv": "3",
+      "id": 5
     }
   ]
 }
